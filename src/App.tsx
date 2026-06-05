@@ -52,7 +52,7 @@ export const App: React.FC = () => {
   const isCVScreen = currentPath === '/cv';
 
   return (
-    <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+    <div className="app-container" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
 
       {/* Select Screen Controls (Top-Left) */}
       {isSelectScreen && (

@@ -526,11 +526,19 @@ body {
 
 /* 📱 Mobile Responsive Rules (width <= 768px) */
 @media (max-width: 768px) {
+  /* Root App Container Unlock */
+  .app-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+
   /* Global Page Container Adjustments */
   .page-container {
     padding: 12px 10px !important;
     height: auto !important;
     min-height: 100vh !important;
+    overflow: visible !important;
   }
   
   /* Character Select Screen Adjustments */
@@ -547,7 +555,7 @@ body {
   .quest-board-container {
     height: auto !important;
     min-height: 100vh !important;
-    overflow-y: auto !important;
+    overflow: visible !important;
     padding: 60px 10px 20px 10px !important; /* Extra padding top for controls overlay */
   }
   .quest-board-grid {
@@ -577,6 +585,9 @@ body {
   /* Classic CV Adjustments */
   .classic-cv-container {
     padding: 60px 10px 20px 10px !important; /* Extra top padding for back button overlay */
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
   }
   .classic-cv-grid {
     margin-top: 20px !important;
