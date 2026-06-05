@@ -524,5 +524,89 @@ body {
     inset 3px 3px 0px 0px #c6f6d5;
 }
 
+/* 📱 Mobile Responsive Rules (width <= 768px) */
+@media (max-width: 768px) {
+  /* Global Page Container Adjustments */
+  .page-container {
+    padding: 12px 10px !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  
+  /* Character Select Screen Adjustments */
+  .char-select-desc {
+    font-size: 15px !important;
+    margin-bottom: 20px !important;
+    line-height: 1.5 !important;
+  }
+  .char-select-box {
+    padding: 16px !important;
+  }
+  
+  /* Quest Board Page Adjustments */
+  .quest-board-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    padding: 60px 10px 20px 10px !important; /* Extra padding top for controls overlay */
+  }
+  .quest-board-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .quest-board-left-panel {
+    padding: 20px 16px !important;
+  }
+  .quest-board-quests-list {
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+  
+  /* Parchment Scroll Detail Overlay Adjustments */
+  .parchment-scroll-container > div {
+    padding: 16px !important;
+    border-width: 4px !important;
+    max-height: 92vh !important;
+    width: 96% !important;
+    gap: 12px !important;
+  }
+  .parchment-scroll-container h4 {
+    font-size: 20px !important;
+  }
+  
+  /* Classic CV Adjustments */
+  .classic-cv-container {
+    padding: 60px 10px 20px 10px !important; /* Extra top padding for back button overlay */
+  }
+  .classic-cv-grid {
+    margin-top: 20px !important;
+    gap: 20px !important;
+  }
+  .classic-cv-box {
+    padding: 16px !important;
+  }
+
+  /* Quest Card Mobile Reflow */
+  .quest-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 12px !important;
+  }
+  .quest-card-left {
+    width: 100% !important;
+    align-items: flex-start !important;
+  }
+  .quest-card-right {
+    width: 100% !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-top: 1px dashed rgba(140, 98, 57, 0.3);
+    padding-top: 10px;
+    min-width: 0 !important;
+  }
+}
+
 
 

@@ -44,7 +44,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
   };
 
   return (
-    <div style={{
+    <div className="classic-cv-container" style={{
       width: '100vw',
       height: '100vh',
       overflowY: 'auto',
@@ -64,7 +64,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
         </button>
       </div>
 
-      <div style={{
+      <div className="classic-cv-grid" style={{
         maxWidth: '1100px',
         margin: '60px auto 0 auto',
         display: 'flex',
@@ -109,7 +109,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
         }}>
         
         {/* Header Block */}
-        <div className="pixel-box glass-window" style={{ padding: '30px', borderRadius: '12px' }}>
+        <div className="pixel-box glass-window classic-cv-box" style={{ padding: '30px', borderRadius: '12px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
             <div>
               <h1 className="retro-header-text" style={{ fontSize: '26px', color: 'var(--accent-gold)' }}>
@@ -159,7 +159,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
         </div>
 
         {/* INTERACTIVE SKILL TREE SECTION */}
-        <div className="pixel-box glass-window" style={{ padding: '30px', borderRadius: '12px' }}>
+        <div className="pixel-box glass-window classic-cv-box" style={{ padding: '30px', borderRadius: '12px' }}>
           <h2 className="retro-header-text" style={{ fontSize: '15px', color: 'var(--accent-gold)', marginBottom: '10px', textAlign: 'center' }}>
             {t.skillTreeTitle}
           </h2>
@@ -304,7 +304,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
         </div>
 
         {/* WORK EXPERIENCE */}
-        <div className="pixel-box glass-window" style={{ padding: '30px', borderRadius: '12px' }}>
+        <div className="pixel-box glass-window classic-cv-box" style={{ padding: '30px', borderRadius: '12px' }}>
           <h2 className="retro-header-text" style={{ fontSize: '15px', color: 'var(--accent-gold)', marginBottom: '25px' }}>
             {t.experience}
           </h2>
@@ -360,7 +360,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
         </div>
 
         {/* PROJECTS */}
-        <div className="pixel-box glass-window" style={{ padding: '30px', borderRadius: '12px' }}>
+        <div className="pixel-box glass-window classic-cv-box" style={{ padding: '30px', borderRadius: '12px' }}>
           <h2 className="retro-header-text" style={{ fontSize: '15px', color: 'var(--accent-gold)', marginBottom: '25px' }}>
             {t.projects}
           </h2>
@@ -400,7 +400,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
           flexWrap: 'wrap'
         }}>
           {/* Education */}
-          <div className="pixel-box glass-window" style={{ flex: '1 1 400px', padding: '25px', borderRadius: '12px' }}>
+          <div className="pixel-box glass-window classic-cv-box" style={{ flex: '1 1 400px', padding: '25px', borderRadius: '12px' }}>
             <h2 className="retro-header-text" style={{ fontSize: '12px', color: 'var(--accent-gold)', marginBottom: '15px' }}>
               {t.education}
             </h2>
@@ -418,7 +418,7 @@ export const ClassicCV: React.FC<ClassicCVProps> = ({ selectedChar, onBackToGame
           </div>
 
           {/* Languages */}
-          <div className="pixel-box glass-window" style={{ flex: '1 1 200px', padding: '25px', borderRadius: '12px' }}>
+          <div className="pixel-box glass-window classic-cv-box" style={{ flex: '1 1 200px', padding: '25px', borderRadius: '12px' }}>
             <h2 className="retro-header-text" style={{ fontSize: '12px', color: 'var(--accent-gold)', marginBottom: '15px' }}>
               {t.languages}
             </h2>

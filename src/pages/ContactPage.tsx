@@ -26,7 +26,7 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div style={{
+    <div className="page-container" style={{
       width: '100vw',
       height: '100vh',
       backgroundColor: 'var(--bg-color)',

@@ -217,6 +217,7 @@ export const QuestBoard: React.FC<QuestBoardProps> = ({
 
   return (
     <div
+      className="quest-board-container"
       style={{
         width: '100vw',
         height: '100vh',
@@ -282,7 +283,7 @@ export const QuestBoard: React.FC<QuestBoardProps> = ({
       >
         {/* LEFT PANEL: PLAYER PROFILE & BUBBLE */}
         <div
-          className="pixel-box glass-window"
+          className="pixel-box glass-window quest-board-left-panel"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -450,6 +451,7 @@ export const QuestBoard: React.FC<QuestBoardProps> = ({
 
           {/* Quests List */}
           <div
+            className="quest-board-quests-list"
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -469,7 +471,7 @@ export const QuestBoard: React.FC<QuestBoardProps> = ({
               return (
                 <div
                   key={quest.id}
-                  className="pixel-box"
+                  className="pixel-box quest-card"
                   onMouseEnter={() => setHoveredQuest(quest.id)}
                   onMouseLeave={() => setHoveredQuest(null)}
                   onClick={() => handleAcceptQuest(quest)}
@@ -489,7 +491,7 @@ export const QuestBoard: React.FC<QuestBoardProps> = ({
                     borderColor: hoveredQuest === quest.id ? quest.color : '#8c6239'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexGrow: 1 }}>
+                  <div className="quest-card-left" style={{ display: 'flex', alignItems: 'center', gap: '14px', flexGrow: 1 }}>
                     {/* Icon container */}
                     <div
                       style={{
@@ -547,6 +549,7 @@ export const QuestBoard: React.FC<QuestBoardProps> = ({
 
                   {/* Actions & Status */}
                   <div
+                    className="quest-card-right"
                     style={{
                       display: 'flex',
                       flexDirection: 'column',

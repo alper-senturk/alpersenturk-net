@@ -73,7 +73,7 @@ export const CharacterSelect: React.FC<CharacterSelectProps> = ({ onSelect, lang
   const characters = getCharacters(lang);
 
   return (
-    <div style={{
+    <div className="page-container" style={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -84,7 +84,7 @@ export const CharacterSelect: React.FC<CharacterSelectProps> = ({ onSelect, lang
       background: 'radial-gradient(circle, #1a202c 0%, #0b0c10 100%)',
       overflowY: 'auto'
     }}>
-      <div className="pixel-box" style={{
+      <div className="pixel-box char-select-box" style={{
         maxWidth: '900px',
         width: '100%',
         padding: '30px',
@@ -96,7 +96,7 @@ export const CharacterSelect: React.FC<CharacterSelectProps> = ({ onSelect, lang
         <h1 className="retro-header-text" style={{ fontSize: '22px', marginBottom: '15px', color: 'var(--accent-gold)' }}>
           {t.selectCharacter}
         </h1>
-        <p className="retro-body-text" style={{ fontSize: '24px', marginBottom: '30px', color: 'var(--text-secondary)' }}>
+        <p className="retro-body-text char-select-desc" style={{ fontSize: '24px', marginBottom: '30px', color: 'var(--text-secondary)' }}>
           {t.selectDescription}
         </p>
 
