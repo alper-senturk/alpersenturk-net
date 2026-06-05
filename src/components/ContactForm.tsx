@@ -16,7 +16,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       RetroAudio.playError();
@@ -32,8 +32,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
     setFormError(null);
     setIsSubmitting(true);
 
-    // Simulate sending
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || (lang === 'en' ? 'Pigeon lost in transit!' : 'Güvercin yolda kayboldu!'));
+      }
+
       setIsSubmitting(false);
       setFormSubmitted(true);
       RetroAudio.playSuccess();
@@ -42,7 +55,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
         spread: 70,
         origin: { y: 0.5 }
       });
-    }, 1500);
+    } catch (err: any) {
+      setIsSubmitting(false);
+      RetroAudio.playError();
+      setFormError(err.message || (lang === 'en' ? 'Failed to dispatch pigeon!' : 'Güvercin gönderilemedi!'));
+    }
   };
 
   return (
