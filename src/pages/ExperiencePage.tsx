@@ -5,6 +5,15 @@ import RetroAudio from '../utils/RetroAudio';
 import { Volume2, VolumeX, ArrowLeft, Briefcase, BookOpen, Globe } from 'lucide-react';
 import { ExperienceTimeline } from '../components/ExperienceTimeline';
 import { LibraryPortfolio } from '../components/LibraryPortfolio';
+import fionaSprite from '../assets/characters/svg/fiona-spritesheet.svg';
+import markSprite from '../assets/characters/svg/mark-spritesheet.svg';
+import olenaSprite from '../assets/characters/svg/olena-spritesheet.svg';
+
+const spriteMap = {
+  fiona: fionaSprite,
+  mark: markSprite,
+  olena: olenaSprite
+};
 
 export const ExperiencePage: React.FC = () => {
   const navigate = useNavigate();
@@ -85,7 +94,7 @@ export const ExperiencePage: React.FC = () => {
           <div 
             className="spritesheet-character"
             style={{
-              backgroundImage: `url(${selectedChar === 'fiona' ? '/src/assets/characters/svg/fiona-spritesheet.svg' : selectedChar === 'mark' ? '/src/assets/characters/svg/mark-spritesheet.svg' : '/src/assets/characters/svg/olena-spritesheet.svg'})`,
+              backgroundImage: `url(${spriteMap[selectedChar]})`,
               backgroundPosition: '0px 0px', // Idle standing frame
               transformOrigin: 'top center',
               transform: `scale(1.3) ${shouldFlipReadingChar ? 'scaleX(-1)' : 'scaleX(1)'}`
