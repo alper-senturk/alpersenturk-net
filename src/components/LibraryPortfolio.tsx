@@ -8,8 +8,8 @@ interface LibraryPortfolioProps {
 }
 
 export const LibraryPortfolio: React.FC<LibraryPortfolioProps> = ({ lang }) => {
-  const [selectedBook, setSelectedBook] = useState<'zapir' | 'roleplay' | 'hikayemsen' | null>(null);
-  const [hoveredBook, setHoveredBook] = useState<'zapir' | 'roleplay' | 'hikayemsen' | null>(null);
+  const [selectedBook, setSelectedBook] = useState<'zapir' | 'roleplay' | 'hikayemsen' | 'substack' | null>(null);
+  const [hoveredBook, setHoveredBook] = useState<'zapir' | 'roleplay' | 'hikayemsen' | 'substack' | null>(null);
   const [simulatedAction, setSimulatedAction] = useState<string | null>(null);
 
   const books = [
@@ -39,6 +39,15 @@ export const LibraryPortfolio: React.FC<LibraryPortfolioProps> = ({ lang }) => {
       accent: '#90cdf4',
       spineText: 'HİKAYEMSEN',
       icon: <Globe size={32} style={{ color: '#90cdf4' }} />
+    },
+    {
+      id: 'substack' as const,
+      titleEN: 'alpersenturk.substack.com',
+      titleTR: 'alpersenturk.substack.com',
+      color: '#522d80', // deep purple
+      accent: '#d6bcfa',
+      spineText: 'SUBSTACK',
+      icon: <FileText size={32} style={{ color: '#d6bcfa' }} />
     }
   ];
 
@@ -82,23 +91,43 @@ export const LibraryPortfolio: React.FC<LibraryPortfolioProps> = ({ lang }) => {
         badgeText: lang === 'en' ? 'TABLETOP RPG' : 'MASAÜSTÜ RPG'
       };
     }
+    if (selectedBook === 'hikayemsen') {
+      return {
+        id: 'hikayemsen',
+        title: 'hikayemsen.com',
+        subtitle: lang === 'en' ? 'AI Storytelling Platform for Kids' : 'Çocuklar İçin AI Hikaye Platformu',
+        desc: lang === 'en'
+          ? "A digital story-generation web app designed for parents to co-create age-appropriate, pedagogically aligned stories for their children using AI."
+          : "Ebeveynlerin çocukları için pedagojik olarak uyumlu, yaşa uygun hikayeleri birlikte oluşturabilecekleri yapay zeka destekli web uygulaması.",
+        role: lang === 'en' ? "Product Management, UI/UX Design & AI Prompt Engineering" : "Ürün Yönetimi, UI/UX Tasarımı ve Yapay Zeka Prompt Mühendisliği",
+        skin: lang === 'en'
+          ? "Allows parents to easily co-create educator-approved stories for children. Brings bedtime storytelling closer to parent-child interaction without direct screen exposure."
+          : "Ebeveynlerin çocuklarıyla birlikte pedagog onaylı hikayeler üretmesini kolaylaştırır. Uyku öncesi masalları ekran süresine boğulmadan ebeveyn-çocuk etkileşimine dönüştürür.",
+        skeleton: lang === 'en'
+          ? "Integrated OpenAI API pipelines with strict content safety rules, customized prompts, React frontend logic, and rapid prototyping workflows."
+          : "Sıkı içerik güvenliği, özel prompt yapılandırmaları, React ön yüz mantığı ve hızlı prototipleme iş akışları ile OpenAI API entegrasyonu.",
+        tags: ['ai-native', 'web-app'],
+        badgeText: 'AI PLATFORM',
+        link: 'https://hikayemsen.com'
+      };
+    }
     return {
-      id: 'hikayemsen',
-      title: 'hikayemsen.com',
-      subtitle: lang === 'en' ? 'AI Storytelling Platform for Kids' : 'Çocuklar İçin AI Hikaye Platformu',
+      id: 'substack',
+      title: 'alpersenturk.substack.com',
+      subtitle: lang === 'en' ? 'SUBSTACK SERIES ON NARRATIVE DESIGN FOR LEARNING' : 'ÖĞRENME İÇİN ANLATI TASARIMI SUBSTACK SERİSİ',
       desc: lang === 'en'
-        ? "A digital story-generation web app designed for parents to co-create age-appropriate, pedagogically aligned stories for their children using AI."
-        : "Ebeveynlerin çocukları için pedagojik olarak uyumlu, yaşa uygun hikayeleri birlikte oluşturabilecekleri yapay zeka destekli web uygulaması.",
-      role: lang === 'en' ? "Product Management, UI/UX Design & AI Prompt Engineering" : "Ürün Yönetimi, UI/UX Tasarımı ve Yapay Zeka Prompt Mühendisliği",
+        ? "A 7-week Substack newsletter series translating cognitive science and human-AI collaboration into immersive learning design strategies."
+        : "Bilişsel bilimleri ve insan-yapay zeka işbirliğini sürükleyici öğrenme tasarımı stratejilerine dönüştüren 7 haftalık bir Substack bülten serisi.",
+      role: lang === 'en' ? "Author, Learning Experience Designer & Prompt Architect" : "Yazar, Öğrenme Deneyimi Tasarımcısı ve Prompt Mimarı",
       skin: lang === 'en'
-        ? "Allows parents to easily co-create educator-approved stories for children. Brings bedtime storytelling closer to parent-child interaction without direct screen exposure."
-        : "Ebeveynlerin çocuklarıyla birlikte pedagog onaylı hikayeler üretmesini kolaylaştırır. Uyku öncesi masalları ekran süresine boğulmadan ebeveyn-çocuk etkileşimine dönüştürür.",
+        ? "Engages readers with a reflective, personal narrative style that uses everyday analogies (like waiting rooms, crowded closets, and turned-around park benches) to explore how context unlocks human curiosity. Bypasses dry academic jargon to deliver a warm, host-centric reading experience."
+        : "Okuyucuları, bağlamın insan merakını nasıl tetiklediğini keşfetmek için günlük benzetmeler (bekleme odaları, kalabalık dolaplar ve ters çevrilmiş park bankları gibi) kullanan derin ve kişisel bir anlatı tarzıyla sarmalar. Akademik jargondan kaçınarak sıcak ve ev sahibi merkezli bir okuma deneyimi sunar.",
       skeleton: lang === 'en'
-        ? "Integrated OpenAI API pipelines with strict content safety rules, customized prompts, React frontend logic, and rapid prototyping workflows."
-        : "Sıkı içerik güvenliği, özel prompt yapılandırmaları, React ön yüz mantığı ve hızlı prototipleme iş akışları ile OpenAI API entegrasyonu.",
-      tags: ['ai-native', 'web-app'],
-      badgeText: 'AI PLATFORM',
-      link: 'https://hikayemsen.com'
+        ? "Grounded in Dr. Paul Zak's neurochemical research (cortisol, dopamine, oxytocin) and John Sweller's Cognitive Load Theory. Integrates advanced prompt engineering frameworks (Persona, Scenario, Narrative-of-Thought) and cohort-based monetization models (Maven) to convert newsletters into scalable educational value."
+        : "Dr. Paul Zak'in nörokimyasal araştırmalarına (kortizol, dopamin, oksitosin) ve John Sweller'ın Bilişsel Yük Teorisine dayanır. Bültenleri ölçeklenebilir eğitim değerine dönüştürmek için Maven gibi topluluk tabanlı modelleri ve gelişmiş prompt çerçevelerini entegre eder.",
+      tags: ['substack', 'narrative'],
+      badgeText: 'SUBSTACK',
+      link: 'https://alpersenturk.substack.com/p/issue-0-welcome-to-crafting-compelling'
     };
   };
 
@@ -440,6 +469,32 @@ export const LibraryPortfolio: React.FC<LibraryPortfolioProps> = ({ lang }) => {
                   </div>
                 )}
 
+                {parchment.id === 'substack' && (
+                  <div className="project-visual-container">
+                    <div className="mockup-header">
+                      <div className="mockup-dot"></div>
+                      <div className="mockup-dot"></div>
+                      <div className="mockup-dot"></div>
+                      <span style={{ fontSize: '11px', color: '#8a6f44', marginLeft: 'auto', fontFamily: 'monospace' }}>SUBSTACK.EXE</span>
+                    </div>
+                    <div className="mockup-screen" style={{ background: '#fffcf5', border: '3px solid #e2d1b7', color: '#ff6b35' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ff6b35', animation: 'bounce 1.5s infinite alternate' }}>
+                        <FileText size={36} />
+                      </div>
+                      <span style={{ fontFamily: 'var(--font-retro-header)', fontSize: '9px', marginTop: '8px', color: '#ff6b35', textAlign: 'center' }}>
+                        CRAFTING NARRATIVES
+                      </span>
+                      <span style={{ fontSize: '11px', color: '#8a6f44', marginTop: '4px', textAlign: 'center', fontFamily: 'monospace' }}>
+                        Issue #0: Welcome
+                      </span>
+                      <div style={{ display: 'flex', gap: '6px', marginTop: '16px' }}>
+                        <span className="tag-pill narrative" style={{ backgroundColor: 'rgba(255,107,53,0.1)', borderColor: '#ff6b35', color: '#ff6b35' }}>NEWSLETTER</span>
+                        <span className="tag-pill strategy" style={{ backgroundColor: 'rgba(99,179,237,0.1)', borderColor: 'var(--accent-blue)', color: 'var(--accent-blue)' }}>COGNITIVE</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Role Details */}
                 <div className="pixel-box" style={{ padding: '12px', background: 'rgba(0,0,0,0.05)', borderColor: 'rgba(138, 111, 68, 0.25)', boxShadow: 'none' }}>
                   <span style={{ fontSize: '13px', textTransform: 'uppercase', color: '#6d4c2b', fontWeight: 'bold', display: 'block', marginBottom: '4px' }}>
@@ -575,6 +630,51 @@ export const LibraryPortfolio: React.FC<LibraryPortfolioProps> = ({ lang }) => {
                           >
                             <Play size={12} /> {lang === 'en' ? 'View Demo Video' : 'Tanıtım Videosunu İzle'}
                           </button>
+                        </>
+                      )}
+
+                      {parchment.id === 'substack' && (
+                        <>
+                          {parchment.link && (
+                            <a
+                              href={parchment.link}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="pixel-btn btn-blue"
+                              onClick={() => RetroAudio.playSelect()}
+                              style={{
+                                flex: '1 1 45%',
+                                fontSize: '11px',
+                                padding: '8px 10px',
+                                justifyContent: 'center',
+                                textDecoration: 'none',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '4px'
+                              }}
+                            >
+                              <Globe size={12} /> {lang === 'en' ? 'Visit Substack' : 'Substack\'i Ziyaret Et'}
+                            </a>
+                          )}
+                          <a
+                            href="/narrative_design_guide.md"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="pixel-btn btn-brown"
+                            onClick={() => RetroAudio.playSelect()}
+                            style={{
+                              flex: '1 1 45%',
+                              fontSize: '11px',
+                              padding: '8px 10px',
+                              justifyContent: 'center',
+                              textDecoration: 'none',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px'
+                            }}
+                          >
+                            <FileText size={12} /> {lang === 'en' ? 'Read the Guide' : 'Rehberi Oku'}
+                          </a>
                         </>
                       )}
                     </div>
